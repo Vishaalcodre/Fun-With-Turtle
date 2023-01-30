@@ -9,9 +9,8 @@ race_on = False
 
 screen.setup(width=500, height=400)
 
-usr_bet = screen.textinput(title="Place your bet", prompt="Which color turtle will win the race? ")
-
-print(usr_bet)
+usr_bet1 = screen.textinput(title="Place your bet", prompt="Which color turtle will win the race? ")
+usr_bet2 = screen.textinput(title="Place your bet", prompt="Which color turtle will win the race? ")
 
 colors = ["red", "purple", "green", "blue", "brown"]
 
@@ -27,17 +26,19 @@ for i in range(0, 5):
     y_axis += 50
     all_turtles.append(new_turtle)
 
-if usr_bet:
+if usr_bet1 and usr_bet2:
     race_on = True
 
 while race_on:
     for turtle in all_turtles:
         if turtle.xcor() > 230:
             winner = turtle.pencolor()
-            if usr_bet == winner:
-                print(f"You Win!, The {winner} won the race!")
+            if usr_bet1 == winner:
+                print(f"Player 1 Win!, The {winner} won the race!")
+            elif usr_bet2 == winner:
+                print(f"Player 2 Win!, The {winner} won the race!")
             else:
-                print(f"You Lose, {winner} won the race.")
+                print(f"You guys Lose, {winner} won the race.")
             race_on = False
         pace = random.randint(0, 10)
         turtle.forward(pace)
