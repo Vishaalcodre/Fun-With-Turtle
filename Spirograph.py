@@ -20,7 +20,7 @@ def random_color():
     return colour
 
 
-for i in range(0, 360, 10):
+for i in range(0, 360, 1):
     angle.append(i)
     color(random_color())
     setheading(i)
